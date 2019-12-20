@@ -6,7 +6,11 @@ SunFounder Smart Video Car Kit V2.0
  - sudo apt update
  - sudo apt upgrade -y
  - sudo apt install git
- 
+### enable i2c
+ - sudo raspi-config
+ - Select “Interfacing Options” :
+ - Highlight the “I2C” option and activate “<Select>”.
+ - Select and activate “<Yes>” :
  
 Quick Links:
 
