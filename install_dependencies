@@ -12,17 +12,19 @@ repo_dir=`pwd`
 
 is_installed_django=False
 is_installed_python_smbus=False
+is_installed_python3_smbus=False
 is_installed_python_opencv=False
+is_installed_python3_opencv=False
 is_installed_libjpeg8_dev=False
 
 if [ "$(whoami)" != "root" ] ; then
     echo -e "You must run this script as root."
-    end
+    exit
 fi
 
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get install build-essential imagemagick libv4l-dev libv4l-0 libjpeg-dev libjpeg8-dev cmake -y
+sudo apt-get install build-essential imagemagick libv4l-dev libv4l-0 cmake -y
 
 function if_continue(){
     while :; do
@@ -59,8 +61,20 @@ function print_result(){
     else
         echo -e "Failed"
     fi
+    echo -e "python3-smbus  \c"
+    if $is_installed_python3_smbus; then
+        echo -e "Success"
+    else
+        echo -e "Failed"
+    fi
     echo -e "python-opencv  \c"
     if $is_installed_python_opencv; then
+        echo -e "Success"
+    else
+        echo -e "Failed"
+    fi
+    echo -e "python3-opencv  \c"
+    if $is_installed_python3_opencv; then
         echo -e "Success"
     else
         echo -e "Failed"
@@ -106,6 +120,21 @@ else
     fi
 fi
 
+echo -e "\nInstalling python3-smbus \n"
+if sudo apt-get install python3-smbus -y; then
+    echo -e "    Successfully installed python3-smbus \n"
+    is_installed_python3_smbus=true
+else
+    echo -e "    Failed to installed python3-smbus \n"
+    echo -e "    Do you want to skip this? \c"
+    if_continue
+    if [ $? = 1 ] ; then
+        echo -e "    Skipped python3-smbus installation."
+    else
+        end
+    fi
+fi
+
 echo -e "\nInstalling python-opencv \n"
 if sudo apt-get install python-opencv -y; then
     echo -e "    Successfully installed python-opencv \n"
@@ -116,6 +145,21 @@ else
     if_continue
     if [ $? = 1 ] ; then
         echo -e "    Skipped python-opencv installation."
+    else
+        end
+    fi
+fi
+
+echo -e "\nInstalling python3-opencv \n"
+if sudo apt-get install python3-opencv -y; then
+    echo -e "    Successfully installed python3-opencv \n"
+    is_installed_python3_opencv=true
+else
+    echo -e "    Failed to installed python3-opencv \n"
+    echo -e "    Do you want to skip this? \c"
+    if_continue
+    if [ $? = 1 ] ; then
+        echo -e "    Skipped python3-opencv installation."
     else
         end
     fi
@@ -175,7 +219,7 @@ echo -e "complete. \n"
 # Enable I2C1 #
 ###################################
 # Add lines to /boot/config.txt
-echo -e "Enalbe I2C \n"
+echo -e "Enable I2C \n"
 egrep -v "^#|^$" /boot/config.txt > config.txt.temp  # pick up all uncomment configrations
 if grep -q 'dtparam=i2c_arm=on' config.txt.temp; then  # whether i2c_arm in uncomment configrations or not
     echo -e '    Seem i2c_arm parameter already set, skip this step \n'
