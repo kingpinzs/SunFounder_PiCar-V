@@ -1,6 +1,13 @@
 ## SunFounder Smart Video Car Kit for Raspberry Pi
 SunFounder Smart Video Car Kit V2.0
 
+## FOR Raspbian Buster Lite
+###Required software
+ - sudo apt update
+ - sudo apt upgrade -y
+ - sudo apt install git
+ 
+ 
 Quick Links:
 
  * [About this kit](#about_this_kit)
