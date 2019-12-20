@@ -8,6 +8,7 @@ RPI_REVISION_0 = ["900092"]
 RPI_REVISION_1 = ["0002", "0003", "0004", "0005", "0006", "0007", "0008", "0009", "000d", "000e", "000f", "0010", "0011", "0012", "0013"]
 RPI_REVISION_2 = ["a01041", "a21041"]
 RPI_REVISION_3 = ["a02082", "a22082"]
+RPI_REVISION_4 = ["a03111", "b03111", "c03111", "c03112"]
 
 CPU_Number = ''
 
@@ -26,6 +27,8 @@ def getPiRevision():
 					return 2
 				elif CPU_Number in RPI_REVISION_3:
 					return 3
+				elif CPU_NUMBER in RPI_REVISION_4:
+					return 4
 				else:
 					return CPU_Number
 	except:

@@ -21,7 +21,8 @@ if [ "$(whoami)" != "root" ] ; then
 fi
 
 sudo apt-get update
-#sudo apt-get upgrade -y
+sudo apt-get upgrade -y
+sudo apt-get install build-essential imagemagick libv4l-dev libv4l-0 libjpeg-dev libjpeg8-dev cmake -y
 
 function if_continue(){
     while :; do
@@ -141,7 +142,7 @@ fi
 
 echo -e "Cloning repo \n"
 cd ../
-git clone --recursive https://github.com/sunfounder/SunFounder_PiCar.git
+git clone --recursive https://github.com/kingpinzs/SunFounder_PiCar.git
 cd SunFounder_PiCar
 echo -e "    Installing PiCar module \n"
 sudo python setup.py install
@@ -164,11 +165,11 @@ echo -e "complete\n"
 # Export Paths #
 ###################################
 #
-#echo -e "Export paths. \n"
-#echo -e export LD_LIBRARY_PATH=/usr/local/lib/ >> ~/.bashrc
-#echo -e export LD_LIBRARY_PATH=/usr/local/lib/ >> ~/.profile
-#source ~/.bashrc
-#echo -e "complete. \n"
+echo -e "Export paths. \n"
+echo -e export LD_LIBRARY_PATH=/usr/local/lib/ >> ~/.bashrc
+echo -e export LD_LIBRARY_PATH=/usr/local/lib/ >> ~/.profile
+source ~/.bashrc
+echo -e "complete. \n"
 
 ###################################
 # Enable I2C1 #
