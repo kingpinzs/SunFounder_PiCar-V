@@ -57,8 +57,9 @@ SCAN_POS = [[20, TILT_ANGLE_MIN], [50, TILT_ANGLE_MIN], [90, TILT_ANGLE_MIN], [1
 
 bw = back_wheels.Back_Wheels()
 fw = front_wheels.Front_Wheels()
-pan_servo = Servo.Servo(1)
-tilt_servo = Servo.Servo(2)
+pan_servo = Servo.Servo(1, bus_number=1)
+tilt_servo = Servo.Servo(2, bus_number=1)
+
 picar.setup()
 
 fw.offset = 0
