@@ -24,7 +24,7 @@ fi
 
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get install build-essential imagemagick libv4l-dev libv4l-0 cmake -y
+sudo apt-get install build-essential imagemagick libv4l-dev libv4l-0 python3-pip python3-rpi.gpio i2c-tools cmake -y
 
 function if_continue(){
     while :; do
