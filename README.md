@@ -12,7 +12,7 @@ SunFounder Smart Video Car Kit V2.0
  - Highlight the “I2C” option and activate “<Select>”.
  - Select and activate “<Yes>” :
  
-Quick Links:
+### Quick Links:
 
  * [About this kit](#about_this_kit)
  * [Update](#update)
