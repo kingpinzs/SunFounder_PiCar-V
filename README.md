@@ -2,15 +2,16 @@
 SunFounder Smart Video Car Kit V2.0
 
 ## For Raspbian Buster Lite
-### Required software
+### Required software:
  - sudo apt update
  - sudo apt upgrade -y
  - sudo apt install git
-### enable i2c
+ 
+### Enable i2c:
  - sudo raspi-config
- - Select “Interfacing Options” :
- - Highlight the “I2C” option and activate “<Select>”.
- - Select and activate “<Yes>” :
+ - Select Interfacing Options
+ - Highlight the I2C option and activate Select
+ - Select and activate Yes
  
 ### Quick Links:
 
